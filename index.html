@@ -61,17 +61,120 @@
 						<h2>I'm sharing my experience</h2>
 						<p class="fragment">Because I have been there already</p>
 						<p class="fragment">Also you would do it or have done it already</p>
+						<aside class="notes">
+							<p>Because I have done so many stupid mistakes</p>
+							<p>But stupid mistakes are what makes us smart</p>
+							<p>And I was so stupid</p>
+							<p>The difference between senior and junior dev can be measured in a stupid mistake count</p>
+						</aside>
 					</section>
 					<section>
-						<h2>And it is damn important</h2>
+						<h2>And it is so important</h2>
 						<p class="fragment">Because you and me repeat all of this</p>
 						<p class="fragment">over and over again</p>
+						<aside class="notes">
+							<p>But you don't want to</p>
+							<p>You can learn from others mistakes</p>
+							<p>That is why we are here</p>
+						</aside>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Chapter 1<br />The story of a pet project</h2>
+					</section>
+					<section>
+						<p>(not so) Long time ago</p>
+						<p class="fragment">In a galaxy (not so) far away</p>
+						<p class="fragment">...</p>
+					</section>
+					<section>
+						<h2>Start the pet project</h2>
+						<pre><code class="hljs" data-trim>
+from flask import Flask
+
+app = Flask(__name__)
+
+
+@app.route('/')
+def index():
+	return "Hello PyCon!"
+
+						</code></pre>
+						<pre class="fragment"><code class="hljs" data-trim>
+$ python back-to-the-future.py
+* Running on http://0:9099/ (Press CTRL+C to quit)
+127.0.0.1 - - [21/Oct/2015 07:28:00] "GET / HTTP/1.1" 200 -
+						</code></pre>
+					</section>
+					<section>
+						<p>Do'h. Flask development server is only for development</p>
+						<pre class="fragment"><code class="hljs" data-trim>
+$ gunicorn back-to-the-future:app
+[2015-10-21 07:28:00 +0200] [29348] [INFO] Starting gunicorn 19.4.5
+						</code></pre>
+					</section>
+					<section>
+						<h2>Let's add some database</h2>
+						<pre class="fragment"><code class="hljs" data-trim>
+import psycopg2
+psycopg2.connect('postgres://you_shall:not_pass@localhost/database')
+						</code></pre>
+					</section>
+					<section>
+						<h2>And commit</h2>
+						<pre class="fragment"><code class="hljs" data-trim>
+$ git init
+$ git add .
+$ git commit -m "Make it so"
+$ git remote add ...
+$ git push origin master # o_O
+						</code></pre>
+						<p class="fragment">Srsly? Pushing credentials into repository?</p>
+						<pre class="fragment"><code class="hljs" data-trim>
+Ctrl-C Ctrl-C Ctrl-C Ctrl-C Ctrl-C
+						</code></pre>
+					</section>
+					<section>
+						<h2>Create config file</h2>
+						<pre class="fragment"><code class="hljs" data-trim>
+$ cat > config.ini
+[database]
+connection_string=postgres://you_shall:not_pass@localhost/database
+Ctrl-D
+						</code></pre>
+						<pre class="fragment"><code class="hljs" data-trim>
+import ConfigParser
+import psycopg2
+
+config = ConfigParser.ConfigParser()
+config.readfp(open('config.ini'))
+
+psycopg2.connect(config.get('database', 'connection_string'))
+						</code></pre>
+						<p class="fragment">Wow. Very secure.</p>
+					</section>
+					<section>
+						<h2>A teammate starts to collaborate with you</h2>
+						<p class="fragment"><q>Dude, your thingy's not working.</q></p>
+						<p class="fragment">Works on my computer.</p>
+						<p class="fragment"><q>Come and look, it's not on mine.</q></p>
+						<pre class="fragment"><code class="hljs" data-trim>
+FileNotFoundError: [Errno 2] No such file or directory: 'config.ini'
+						</code></pre>
+						<pre class="fragment"><code class="hljs" data-trim>
+$ scp config.ini teammate-pc:/tmp/
+						</code></pre>
+						<p class="fragment">Solved!</p>
+					</section>
+					<section>
+						<p><q>And this could continue for a looong time</q></p>
 					</section>
 				</section>
 
 				<section>
 					<section>
-						<h2>The situation</h2>
+						<h2>Chapter 2<br />The situation</h2>
 						<p>is that you can run python </p>
 						<p class="fragment">... in several use cases</p>
 						<p class="fragment">... in outer space</p>
@@ -134,11 +237,108 @@
 						<p class="fragment">Some of them did even exist anywhere year ago</p>
 						<p class="fragment">... and some of them you simply don't know<em class="fragment"> (yet)</em></p>
 					</section>
-
 				</section>
 
 				<section>
-					<h1>And that's it!</h1>
+					<h2>Chapter 3<br />Relevant fields of architecture</h2>
+					<p>Which are to be important to me</p>
+					<p>And those making differences</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>What you are doing</h2>
+						<p class="fragment">Pet project</p>
+						<p class="fragment">One time script</p>
+						<p class="fragment">Enterprise solution</p>
+						<aside class="notes">
+							<p>-> how many people</p>
+							<p>-> how serious</p>
+							<p>-> what are you doing</p>
+						</aside>
+					</section>
+					<section>
+						<h2>What is the application</h2>
+						<p class="fragment">Cron script</p>
+						<p class="fragment">API / Website</p>
+						<p class="fragment">Daemon</p>
+						<p class="fragment">Utility (CLI)</p>
+						<p class="fragment">GUI application</p>
+						<p class="fragment">Controller (micropython)</p>
+						<aside class="notes">
+							<p>purpose of the app</p>
+						</aside>
+					</section>
+					<section>
+						<h2>Team settings</h2>
+						<p class="fragment">Single person</p>
+						<p class="fragment">One team</p>
+						<p class="fragment">More teams</p>
+						<p class="fragment">Opensource contributors</p>
+						<aside class="notes">
+							<p>involvement</p>
+							<p>documentation</p>
+							<p>release cycle</p>
+							<p>standarts</p>
+							<p>processes</p>
+						</aside>
+					</section>
+					<section>
+						<h2>Scale</h2>
+						<p class="fragment">or not to scale?</p>
+						<ul class="fragment">
+							<li>Irrelevant</li>
+							<li>Team scaling</li>
+							<li>Process scaling</li>
+						</ul>
+						<aside class="notes">
+							<p>If you want to scale, you should keep it in mind from the very beggining</p>
+						</aside>
+					</section>
+					<section>
+						<h2>Configuration</h2>
+						<p class="fragment">Hardcoded</p>
+						<p class="fragment">Config files</p>
+						<p class="fragment">Evn variables</p>
+						<p class="fragment">Service discovery</p>
+						<aside class="notes">
+							<p>hardcoded could be fine for some situations</p>
+							<p>Consul, zookeeper, ...</p>
+							<p>how to store them? = privacy, encryption, security</p>
+						</aside>
+					</section>
+					<section>
+						<h2>Testing and staging</h2>
+						<p class="fragment">Do you need those</p>
+					</section>
+					<section>
+						<h2>Shipping to production</h2>
+						<p class="fragment">git pull</p>
+						<p class="fragment">pip install</p>
+						<p class="fragment">autoupdates</p>
+						<p class="fragment">docker</p>
+					</section>
+					<section>
+						<h2>Application lifecycle</h2>
+						<p class="fragment">Continous integration and delivery</p>
+						<p class="fragment">Bigger releases</p>
+						<p class="fragment"></p>
+					</section>
+					<section>
+						<h2>Logging</h2>
+						<p class="fragment">print function</p>
+						<p class="fragment">logging module</p>
+						<p class="fragment">other solutions</p>
+						<p class="fragment">... how to access logs?</p>
+						<aside class="notes">
+							<p>sentry, rollbar, datadog, grafana</p>
+							<p>ELK, direct pass, ...</p>
+						</aside>
+					</section>
+				</section>
+
+				<section>
+					<h1>That's it!</h1>
 					<p>
 						<small>Created by <a href="http://petr.joachim.cz">Petr Joachim</a> / <a href="https://twitter.com/petrjoachim">@petrjoachim</a></small>
 					</p>

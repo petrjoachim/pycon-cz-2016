@@ -52,7 +52,8 @@
 						<small>Created by <a href="http://petr.joachim.cz">Petr Joachim</a> / <a href="https://twitter.com/petrjoachim">@petrjoachim</a></small>
 					</p>
 					<aside class="notes">
-						Let this hang in the room for a moment at tell something about yourself
+						<p>Let this hang in the room for a moment at tell something about yourself</p>
+						<p></p>
 					</aside>
 				</section>
 
@@ -62,10 +63,10 @@
 						<p class="fragment">Because I have been there already</p>
 						<p class="fragment">Also you would do it or have done it already</p>
 						<aside class="notes">
-							<p>Because I have done so many stupid mistakes</p>
-							<p>But stupid mistakes are what makes us smart</p>
-							<p>And I was so stupid</p>
-							<p>The difference between senior and junior dev can be measured in a stupid mistake count</p>
+							Because I have done so many stupid mistakes<br/>
+							But stupid mistakes are what makes us smart<br/>
+							And I was so stupid<br/>
+							The difference between senior and junior dev can be measured in a stupid mistake count<br/>
 						</aside>
 					</section>
 					<section>
@@ -73,15 +74,19 @@
 						<p class="fragment">Because you and me repeat all of this</p>
 						<p class="fragment">over and over again</p>
 						<aside class="notes">
-							<p>But you don't want to</p>
-							<p>You can learn from others mistakes</p>
-							<p>That is why we are here</p>
+							But you don't want to<br/>
+							You can learn from others mistakes<br/>
+							That is why we are here<br/>
 						</aside>
 					</section>
 				</section>
 				<section>
-					<section>
+					<section data-background-color="#007785">
 						<h2>Chapter 1<br />The story of a pet project</h2>
+						<aside class="notes">
+							When I was younger I've done this<br />
+							Many times
+						</aside>
 					</section>
 					<section>
 						<p>(not so) Long time ago</p>
@@ -168,12 +173,21 @@ $ scp config.ini teammate-pc:/tmp/
 						<p class="fragment">Solved!</p>
 					</section>
 					<section>
-						<p><q>And this could continue for a looong time</q></p>
+						<p>Then you implement uploading some files</p>
+						<p class="fragment">And finally your boss wants to make the solution HA</p>
+						<p class="fragment">So you figure out how to be independent from local filesystem</p>
+					</section>
+					<section>
+						<h2>The sad end</h2>
+						<pre><code class="hljs" data-trim>
+while True:
+	things.change()
+						</code></pre>
 					</section>
 				</section>
 
 				<section>
-					<section>
+					<section data-background-color="#007785">
 						<h2>Chapter 2<br />The situation</h2>
 						<p>is that you can run python </p>
 						<p class="fragment">... in several use cases</p>
@@ -190,10 +204,13 @@ $ scp config.ini teammate-pc:/tmp/
 						<p class="fragment">It matters before you actually start to write Python at all</p>
 						<p class="fragment">It matters because you have to be informed</p>
 					</section>
-					<section>
+					<section data-background-color="#EB9D08">
 						<p>And after all it starts with making decisions</p>
 						<h2 class="fragment">Wait!</h2>
-						<h2 class="fragment">All I wanted is to code Python</h2>
+						<h2 class="fragment">Me want code Python</h2>
+						<aside class="notes">
+							The actual coding starts before opening the editor
+						</aside>
 					</section>
 					<section>
 						<p>You should decide how you would make your application</p>
@@ -240,21 +257,20 @@ $ scp config.ini teammate-pc:/tmp/
 				</section>
 
 				<section>
-					<h2>Chapter 3<br />Relevant fields of architecture</h2>
-					<p>Which are to be important to me</p>
-					<p>And those making differences</p>
-				</section>
-
-				<section>
+					<section data-background-color="#007785">
+						<h2>Chapter 3<br />Relevant fields of architecture</h2>
+						<p>Which are to be important to me</p>
+						<p>And those making differences</p>
+					</section>
 					<section>
 						<h2>What you are doing</h2>
 						<p class="fragment">Pet project</p>
 						<p class="fragment">One time script</p>
 						<p class="fragment">Enterprise solution</p>
 						<aside class="notes">
-							<p>-> how many people</p>
-							<p>-> how serious</p>
-							<p>-> what are you doing</p>
+							-> how many people<br/>
+							-> how serious<br/>
+							-> what are you doing<br/>
 						</aside>
 					</section>
 					<section>
@@ -266,7 +282,7 @@ $ scp config.ini teammate-pc:/tmp/
 						<p class="fragment">GUI application</p>
 						<p class="fragment">Controller (micropython)</p>
 						<aside class="notes">
-							<p>purpose of the app</p>
+							purpose of the app<br/>
 						</aside>
 					</section>
 					<section>
@@ -276,11 +292,11 @@ $ scp config.ini teammate-pc:/tmp/
 						<p class="fragment">More teams</p>
 						<p class="fragment">Opensource contributors</p>
 						<aside class="notes">
-							<p>involvement</p>
-							<p>documentation</p>
-							<p>release cycle</p>
-							<p>standarts</p>
-							<p>processes</p>
+							involvement<br/>
+							documentation<br/>
+							release cycle<br/>
+							standarts<br/>
+							processes<br/>
 						</aside>
 					</section>
 					<section>
@@ -302,9 +318,9 @@ $ scp config.ini teammate-pc:/tmp/
 						<p class="fragment">Evn variables</p>
 						<p class="fragment">Service discovery</p>
 						<aside class="notes">
-							<p>hardcoded could be fine for some situations</p>
-							<p>Consul, zookeeper, ...</p>
-							<p>how to store them? = privacy, encryption, security</p>
+							hardcoded could be fine for some situations<br/>
+							Consul, zookeeper, ...<br/>
+							how to store them? = privacy, encryption, security<br/>
 						</aside>
 					</section>
 					<section>
@@ -331,9 +347,20 @@ $ scp config.ini teammate-pc:/tmp/
 						<p class="fragment">other solutions</p>
 						<p class="fragment">... how to access logs?</p>
 						<aside class="notes">
-							<p>sentry, rollbar, datadog, grafana</p>
-							<p>ELK, direct pass, ...</p>
+							sentry, rollbar, datadog, grafana<br/>
+							ELK, direct pass, ...<br/>
 						</aside>
+					</section>
+				</section>
+
+				<section>
+					<section data-background-color="#007785">
+						<h2>Chapter 4<br />Choose the best<br /><em>for you and your app</em></h2>
+					</section>
+					<section>
+						<p>It's easy to predict wrong</p>
+						<p class="fragment">So it's easy to be overprepared</p>
+						<p class="fragment">Or not prepared enough</p>
 					</section>
 				</section>
 
